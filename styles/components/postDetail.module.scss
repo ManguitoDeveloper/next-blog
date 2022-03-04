@@ -1,0 +1,89 @@
+@import '../../styles/mixins';
+@import '../../styles/fonts';
+.post{
+
+    width: 100%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+    text-align: center;
+    transition: .3s;
+    
+    &:hover{
+        .imageBox img{
+            transition: .5s;
+            transform: scale(1.3);
+        }
+    }
+    
+    .imageBox{
+        margin: -15px 0 0 -15px;
+        filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.5));
+        @include imageBox(calc(100% + 30px),200px){
+            border-radius: 15px 15px 0 0;
+            img{
+                transition: .5s;
+            }
+        }
+        @include desktop() {
+            height: 300px;
+        }
+    }
+
+    .authorBox{
+
+        margin: 15px 0;
+        @include flexbox(row,center,center);
+        @include flex-gap(0, 10px);
+        
+        .imageBox{
+            filter: none;
+            margin: 0;
+            @include imageBox(30px,30px){
+                border-radius: 15px;
+            };
+            #author{
+                transform: none;
+            }
+        }
+
+       .date{
+
+            display: flex;
+
+            &::before{
+                content: '';
+                background-image: url("../../public/assets/icons/calendar.png");
+                width: 20px;
+                height: 20px;
+                background-size: 20px;
+                display: inline-block;
+                margin-right: 5px;
+            }
+
+       }
+          
+    }
+
+    .title{
+        font-family: $Anton;
+        font-size: 36px;
+        margin-top: -9px;
+        margin-bottom: 15px;
+    }
+
+    .text{
+        text-align: left;
+        text-indent: 1em;
+
+        p{
+            margin-bottom: 15px;
+
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+}

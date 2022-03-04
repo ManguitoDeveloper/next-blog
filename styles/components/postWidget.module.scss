@@ -1,0 +1,56 @@
+@import '../mixins';
+@import '../fonts';
+@import '../variables';
+
+.card{
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+
+    .title{
+        padding-bottom: 5px;
+        border-bottom: solid 1px gainsboro;
+        margin-bottom: 10px;
+        font-family: $Anton;
+    }
+
+    .related{
+        margin-bottom: 10px;
+        
+        @include flexbox(row,initial,center);
+        
+        &:last-child{
+            margin-bottom: 0px;
+        }
+
+        &:hover{
+            .imageBox{
+                img{
+                    transition: .2s;
+                    transform: scale(1.2);
+                }
+            }
+        }
+        
+        .imageBox{
+            margin-right: 10px;
+            @include imageBox(60px,60px){
+                border-radius: 15px;
+            }
+            img{
+                transition: .2s;
+            }
+        }
+    }
+
+    .name{
+        cursor: pointer;
+        &:hover{
+            color: $secondary;
+        }
+    }
+
+
+
+}

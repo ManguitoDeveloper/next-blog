@@ -1,0 +1,56 @@
+@mixin  tablet() {
+    @media (min-width: 540px) {
+        @content;
+    }
+}
+
+@mixin  desktop() {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin abs-position ($top, $right, $bottom, $left) {
+    position: absolute; 
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin flexbox ($direction, $justify-content:center, $align-items:center,$wrap:nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-wrap: $wrap;
+}
+
+@mixin flex-gap($gapRow:0,$gapCol:0) {
+    row-gap: $gapRow;    
+    column-gap: $gapCol;
+}
+
+@mixin imageBox($width,$height){
+    
+    position: relative;
+    width: $width;
+    height: $height;
+    
+    span{
+
+        @content;
+        
+        img{
+            object-fit: cover;
+            overflow: hidden;
+        }
+    }
+}
+
+@mixin line-clamp($lines) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+}
